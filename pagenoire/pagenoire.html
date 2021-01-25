@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Baldwin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="file:///C:/Users/Sacha/Documents/SACHA/Site%20JB/5B/pagenoire/reset.css">
+<link rel="stylesheet" href="file:///C:/Users/Sacha/Documents/SACHA/Site%20JB/5B/pagenoire/styles.css">
+</head>
+<body>
+
+  <div id="conteneur">
+    <header>
+    <h1 class="cadre"id="ouvreNavigation"> &nbsp;James Baldwin.&nbsp; </h1>
+    <h1 class="cadre"id="onOff"> &nbsp;<a href="file:///C:/Users/Sacha/Documents/SACHA/Site%20JB/5B/pageblanche/pageblanche.html">.Racist ideas</a> &nbsp;</h1>
+
+  <audio id="son_01" src="sons/le-bruit-et-lodeur-jacques-chirac.mp3"></audio>
+
+</header>
+
+
+<div id="texte">
+      <div id="citation">
+        <p>«&nbsp;Aucun royaume, aucun système n’est éternel », assurait James Baldwin au Nouvel observateur en avril 1983. Quatre ans plus tard, il disparaissait à Saint-Paul-de-Vence, dans les Alpes-Maritimes, sa seconde terre. Baldwin refusait d’être un porte-parole et se prononçait en faveur de l’instauration du socialisme dans son pays natal ; il fut surveillé de près par le FBI : pas loin de 2 000 pages de notes. De romans en essais, ce compagnon de route de Martin Luther King et de Malcolm X n’a eu de cesse de s’élever contre l’oppression que subissaient les Afro-Américains. Retour, en 26 mots, sur une œuvre incisive.&nbsp;»</p>
+    </div>
+  </div>
+
+
+ <div id="mots">
+    <p id="ferme">x</p>
+    <ul>
+      <li id="A">Amour</li>
+      <li id="B">Besoin</li>
+      <li id="C">Chair</li>
+      <li id="D">Distinction</li>
+      <li id="E">Écrivain</li>
+      <li id="F">Femmes</li>
+      <li id="G">Gary Cooper</li>
+      <li id="H">Holocauste</li>
+      <li id="I">Identité</li>
+      <li id="J">Jeu</li>
+      <li id="K">King</li>
+      <li id="L">Loi</li>
+      <li id="M">Mur</li>
+      <li id="N">Noirs</li>
+      <li id="O">Observation</li>
+      <li id="P">Paris</li>
+      <li id="Q">Questions</li>
+      <li id="R">Révolution</li>
+      <li id="S">Sexes</li>
+      <li id="T">Trompette</li>
+      <li id="U">Unique</li>
+      <li id="V">Viêt-cong</li>
+      <li id="W">Wayne</li>
+      <li id="X">X</li>
+      <li id="Y">Yankee</li>
+      <li id="Z">Zèbre</li>
+    </ul>
+  </div>
+
+  </div>
+
+  <script src="file:///C:/Users/Sacha/Documents/SACHA/Site%20JB/5B/pageblanche/scripts.js">
+      
+      // Fonction pré-écrite qui va tirer un nombre au hasard entre min et max
+  function tireNombreHasard(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  // -- utilisable n'importe quand
+
+
+  // Récupération des références au son, et aux boutons
+  let son01 = document.getElementById("son_01");
+  let boutonLecture = document.getElementById("lecture");
+  let boutonPause = document.getElementById("pause");
+
+  // Variable pour temporisation entre les intervalles
+  let temporisation = 600;
+
+  // Au chargement, on masque le bouton pause
+  boutonPause.style.display = "none";
+
+  // Fonction qui va jouer le son
+  function joueSon(){
+    // on replace la tête de lecture à 20 secondes (du début)
+    //son01.currentTime = 20;
+    son01.currentTime = tireNombreHasard(0,son01.duration);
+    son01.play();
+    // relance de la fonction avec une temporisation (attente) au hasard, en milisecondes
+    temporisation = tireNombreHasard(100,3000);
+    boucle = setTimeout(joueSon,temporisation);
+  }
+
+  // Variable qui contiendra la boucle
+  let boucle;
+
+  // Lecture au clic
+  boutonLecture.onclick = function(){
+    // Lancement de la boucle avec setTimeout
+    // (on va lancer la fonction joueSon à des ryhtmes différents)
+    boucle = setTimeout(joueSon,600);
+    // masquage du bouton lecture et affichage du bouton pause
+    boutonLecture.style.display = "none";
+    boutonPause.style.display = "block";
+  }
+
+  // Lecture au clic
+  boutonPause.onclick = function(){
+    // Arrêt de la boucle
+    clearInterval(boucle);
+    son01.pause();
+    // masquage du bouton pause et affichage du bouton lecture
+    boutonLecture.style.display = "block";
+    boutonPause.style.display = "none";
+  }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* Boutons */
+
+/* p#lecture,
+p#pause{
+	background-color: white ;
+	padding:0;
+	cursor:pointer;
+	border-radius:1vw;
+	display:block;
+	margin-top:4vw;
+	width:12vw;
+	text-align:center;
+	margin-top:2vw;
+}
+
+p#lecture:hover,
+p#pause:hover{
+	background-color: white ;
+	opacity:0.2;
+
+} */
+
+#conteneur{
+width:100vw;
+height:100vh;
+}
+
+
+body {
+	padding:0;
+	margin:0;
+	background-color: #FAFAFA;
+	color: #222;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size: 2vw;
+	line-height: 110%;
+	padding:20px;
+	overflow:hidden;
+}
+
+i{
+	font-weight:bold; 
+}
+
+#textes .leMot{
+	width:calc(100vw / 6);
+	height:auto;
+	/* position initiale */
+	position:absolute;
+	top:0;
+	left:0;
+	opacity:0;
+	transition:all 1.2s;
+}
+
+header{
+	font-size:2.6vh;
+
+	/* Positionnement fixe */
+
+	width:94%;
+	height:6%;
+	/* Espacements intérieurs */
+	padding-right: 3%;
+	padding-left: 3%;
+	padding-top: 3%;
+
+
+	display: flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-content:center;
+
+}
+
+header h1{
+	cursor:pointer;
+	border-color:black;
+	border:0vw solid;
+	width:auto;
+	height:4vh;
+	margin:2vw;
+	border-radius:1vh;
+	line-height: 150%;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+header h1:hover{
+	opacity:0.2;
+}
+
+header h1:visited{
+	opacity:1;
+}
+
+ul{
+	list-style-type: none;
+}
+
+#texte{
+	width:100vw;
+	height:100vh;
+	/* Centrage horizontal et vertical du contenu s*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#mots{
+	position:fixed;
+	bottom:0;
+	/* positionnement complètement à droite, hors-champ */
+	left:-9vw;
+	width:9vw;
+	height:80vh;
+	overflow:auto;
+	font-size: 1rem;
+	line-height:110%;
+	background-color:black;
+	background-color:transparent;
+	/* transition */
+	transition:left 1s;
+}
+
+#mots.navigationOuverte{
+	left:0vw;
+}
+
+#mots.navigationOuverte #ferme{
+	visibility:visible;
+}
+
+#mots li{
+	cursor:pointer;
+}
+
+#mots li:hover{
+	color: black;
+	opacity: 0.2;
+}
+#mots #ferme{
+	position:fixed;
+	top:100px;
+	left:8px;
+	cursor:pointer;
+	visibility:hidden;
+}
+#mots #ferme:hover{
+	opacity:0.6;
+}
+
+
+
+.off{
+	background-color:black;
+	color:white;
+}
